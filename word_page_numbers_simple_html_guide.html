@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Remove & Add Page Numbers in Microsoft Word</title>
+  <style>
+    :root {
+      --bg: #0f172a;        /* slate-900 */
+      --panel: #111827;     /* gray-900 */
+      --muted: #94a3b8;     /* slate-400 */
+      --text: #e5e7eb;      /* gray-200 */
+      --accent: #22d3ee;    /* cyan-400 */
+      --accent-2: #a78bfa;  /* violet-400 */
+      --ring: rgba(34, 211, 238, 0.25);
+      --card: #0b1220;      /* darker panel */
+      --border: #1f2937;    /* gray-800 */
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(167,139,250,.15), transparent 60%),
+                  radial-gradient(900px 500px at 110% 10%, rgba(34,211,238,.12), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    header {
+      display: grid;
+      gap: .75rem;
+      justify-items: center;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 2.5vw + 1rem, 2.4rem);
+      margin: 0;
+      letter-spacing: .3px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 60ch;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.1rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+
+    .card:hover { transform: translateY(-2px); border-color: #374151; box-shadow: 0 14px 34px rgba(0,0,0,.32); }
+
+    .tag { font-size: .85rem; color: var(--accent); letter-spacing: .3px; }
+    h2 { font-size: 1.15rem; margin: .35rem 0 .6rem; }
+    ol { margin: .25rem 0 .5rem 1.2rem; }
+    li { margin: .3rem 0; }
+    details { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: .8rem 1rem; }
+    summary { cursor: pointer; font-weight: 600; }
+
+    .tip {
+      background: linear-gradient(90deg, rgba(34,211,238,.1), rgba(167,139,250,.08));
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      padding: .85rem 1rem;
+      margin-top: 1rem;
+      color: var(--text);
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: .9rem;
+      margin-top: 2rem;
+    }
+
+    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .95em; background: #0b1220; border: 1px solid var(--border); padding: .05rem .35rem; border-radius: 6px; }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 780px) {
+      .row { grid-template-columns: 1.2fr .8fr; }
+    }
+
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Remove & Add Page Numbers in Microsoft Word</h1>
+      <p class="subtitle">A quick, no‑nonsense guide for Word on Windows or macOS. Use the steps below to remove page numbers entirely, hide them on the first page, or control numbering across sections. ✔️</p>
+    </header>
+
+    <div class="row">
+      <section class="panel">
+        <h2>🚫 Remove <em>All</em> Page Numbers (Whole Document)</h2>
+        <ol>
+          <li>Open your document.</li>
+          <li>Go to <strong>Insert</strong> → <strong>Page Number</strong>.</li>
+          <li>Click <strong>Remove Page Numbers</strong>.</li>
+        </ol>
+        <div class="tip">If that doesn’t clear them, your file probably has multiple <strong>sections</strong>. See <a href="#sections">Sectioned Documents</a>.</div>
+      </section>
+
+      <section class="panel">
+        <h2>🙈 Hide Page Number on the First Page Only</h2>
+        <ol>
+          <li>Double‑click the <strong>header or footer</strong> to edit it.</li>
+          <li>Enable <strong>Different First Page</strong> on the <em>Header &amp; Footer</em> toolbar.</li>
+          <li>Delete the number on the first page if it remains.</li>
+        </ol>
+        <div class="tip">Your document will start numbering from page 2 visually, but the internal page count can still start at 1. Use <strong>Format Page Numbers → Start at</strong> to adjust.</div>
+      </section>
+    </div>
+
+    <section class="cards" id="sections">
+      <article class="card">
+        <div class="tag">Advanced</div>
+        <h2>🔀 Sectioned Documents: Remove Numbers Everywhere</h2>
+        <ol>
+          <li>Double‑click a page number to open the header/footer.</li>
+          <li>On the toolbar, click <strong>Link to Previous</strong> to <em>turn it off</em> in each section.</li>
+          <li>Delete the page number in that section’s header and footer.</li>
+          <li>Repeat for every section until all numbers are gone.</li>
+        </ol>
+        <details>
+          <summary>How to find section breaks</summary>
+          <ol>
+            <li>Go to <strong>Home</strong> and click <strong>¶ Show/Hide</strong> to reveal non‑printing marks.</li>
+            <li>Look for <em>Section Break (Next Page)</em> or similar markers between pages.</li>
+          </ol>
+        </details>
+      </article>
+
+      <article class="card">
+        <div class="tag">Optional</div>
+        <h2>➕ Add Page Numbers (Later)</h2>
+        <ol>
+          <li>Insert → <strong>Page Number</strong> → choose <em>Top</em> or <em>Bottom</em>.</li>
+          <li>Pick a style, then double‑click header/footer to tweak.</li>
+          <li>Use <strong>Format Page Numbers</strong> to choose 1, 2, 3… or i, ii, iii, and set <strong>Start at</strong>.</li>
+        </ol>
+      </article>
+
+      <article class="card">
+        <div class="tag">Troubleshooting</div>
+        <h2>🛠️ Still Seeing Numbers?</h2>
+        <ul>
+          <li>Delete numbers from <em>both</em> header and footer views.</li>
+          <li>Check if <span class="kbd">Different First Page</span> or <span class="kbd">Different Odd &amp; Even</span> is enabled.</li>
+          <li>Ensure you removed numbers in each section (unlink first!).</li>
+          <li>Some templates place numbers in <em>text boxes</em>—click the number and press <span class="kbd">Delete</span>.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="panel" aria-label="keyboard">
+      <h2>⌨️ Handy Shortcuts</h2>
+      <ul>
+        <li><strong>Edit header/footer:</strong> double‑click near page top/bottom</li>
+        <li><strong>Close header/footer:</strong> <span class="kbd">Esc</span></li>
+        <li><strong>Show/Hide marks:</strong> <span class="kbd">Ctrl</span> + <span class="kbd">Shift</span> + <span class="kbd">8</span> (Windows) · <span class="kbd">⌘</span> + <span class="kbd">8</span> (Mac)</li>
+      </ul>
+    </section>
+
+    <p class="footer">Need a version with screenshots or a printable PDF? Let me know and I’ll generate it.</p>
+  </div>
+</body>
+</html>
